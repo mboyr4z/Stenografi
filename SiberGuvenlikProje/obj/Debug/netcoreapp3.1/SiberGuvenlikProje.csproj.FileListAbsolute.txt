@@ -1,0 +1,16 @@
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\SiberGuvenlikProje.exe
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\SiberGuvenlikProje.deps.json
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\SiberGuvenlikProje.runtimeconfig.json
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\SiberGuvenlikProje.runtimeconfig.dev.json
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\SiberGuvenlikProje.dll
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\SiberGuvenlikProje.pdb
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.csproj.AssemblyReference.cache
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Form1.resources
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.csproj.GenerateResource.cache
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.AssemblyInfoInputs.cache
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.AssemblyInfo.cs
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.csproj.CoreCompileInputs.cache
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.dll
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.pdb
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.genruntimeconfig.cache
