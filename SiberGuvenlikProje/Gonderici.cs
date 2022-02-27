@@ -103,8 +103,11 @@ namespace SiberGuvenlikProje
 
         private void btn_sifrele_Click(object sender, EventArgs e)
         {
-            goruntu = new Bitmap(dosyaYolu);
+            Image newImage = Image.FromFile(dosyaYolu);
+            goruntu = CreateNonIndexedImage(newImage);
             string sifre = text_sifre.Text;
+
+            cikti.al("Şifre : " + sifre.ToString());
 
             
 
@@ -112,8 +115,13 @@ namespace SiberGuvenlikProje
             Color pixel = goruntu.GetPixel(goruntu.Width - 1, goruntu.Height - 1);
             int kacHanedeBirSifrelenecek = (pixel.R % 5) + 1;
 
-            Color pixel2 = goruntu.GetPixel(goruntu.Width - 2, goruntu.Height - 1);
+            cikti.al("Kac Hanede : " + kacHanedeBirSifrelenecek.ToString());
+
+            pixel = goruntu.GetPixel(goruntu.Width - 2, goruntu.Height - 1);
             int HangiRGb = (pixel.G % 3);
+            cikti.al("Hangi RGB : " + HangiRGb.ToString());
+
+            
 
 
 
@@ -128,8 +136,7 @@ namespace SiberGuvenlikProje
 
                     if (sayac % kacHanedeBirSifrelenecek == 0)
                     {
-                      
-                        Color Pixel = goruntu.GetPixel(j, i);//color sınıfını ile pixel rengini alıyoruz.
+                        pixel = goruntu.GetPixel(j, i);
                         switch (HangiRGb)
                         {
                             case 0:
@@ -146,53 +153,98 @@ namespace SiberGuvenlikProje
 
                         int asciiKalan = ((int)sifre[harfsayaci]) % 97;
 
-                        //richTextBox1.Text += kalan.ToString() +" " + (asciiKalan).ToString() +  " \n";
                         int fark = asciiKalan - kalan;
-                      
-                   
+
+                        int r, g, b;
+                        r = pixel.R;
+                        g = pixel.G;
+                        b = pixel.B;
+
+            
                         switch (HangiRGb)
                         {
                             case 0:
+                              
                                 if (pixel.R > 215)
                                 {
                                     fark -= 35;
                                 }
-                                
-                                goruntu.SetPixel(j,i,Color.FromArgb(255,pixel.R + fark, pixel.G,pixel.B));
+                                r += fark;
                                 break;
                             case 1:
                                 if (pixel.G > 215)
                                 {
                                     fark -= 35;
                                 }
-                                goruntu.SetPixel(j, i, Color.FromArgb(255, pixel.R , pixel.G + fark, pixel.B));
+                                g += fark;
                                 break;
                             case 2:
                                 if (pixel.B > 215)
                                 {
                                     fark -= 35;
                                 }
-                                goruntu.SetPixel(j, i, Color.FromArgb(255, pixel.R, pixel.G, pixel.B + fark));
+                                b += fark;
                                 break;
                         }
+
+                        goruntu.SetPixel(j, i, Color.FromArgb(r, g, b));
 
 
                         harfsayaci++;
                         sayac = 0;
                     }
                     sayac++;
-
+              
                     if (harfsayaci == sifre.Length)
                     {
+                      
                         pictureBox1.Image = goruntu;
                         btn_sifrele.Text = "Şifrelendi";
-                        goruntu.Save("gonderilecek", ImageFormat.Png);
+                        pixel = goruntu.GetPixel(goruntu.Width - 3, goruntu.Height - 1);
+                        int r = (pixel.R - pixel.R % 10);
+                        int g = (pixel.G - pixel.G % 10);
+                        int b = (pixel.B - pixel.B % 10);
+
+                        if(r > 240)
+                        {
+                            r -= 10;
+                        }
+
+                        if(g > 240)
+                        {
+                            g -= 10;
+                        }
+
+                        if (b > 240)
+                        {
+                            b -= 10;
+                        }
+
+
+                        goruntu.SetPixel(goruntu.Width - 3, goruntu.Height - 1, Color.FromArgb(r + sifre.Length / 100, g + sifre.Length / 10, b + sifre.Length % 10));
+                        goruntu.Save("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png", ImageFormat.Png);
                         return;
                     }
                 }
 
             }
 
+          
+          
+
+
+        }
+
+        public Bitmap CreateNonIndexedImage(Image src)
+        {
+            Bitmap newBmp = new Bitmap(src.Width, src.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (Graphics gfx = Graphics.FromImage(newBmp))
+            {
+                gfx.DrawImage(src, 0, 0);
+            }
+
+            return newBmp;
         }
 
 

@@ -8,6 +8,13 @@ using System.Windows.Forms;
 
 namespace SiberGuvenlikProje
 {
+
+    public enum Renkler
+    {
+        R,
+        G,
+        B
+    }
     public partial class Alici : Form
     {
         public Alici()
@@ -17,9 +24,92 @@ namespace SiberGuvenlikProje
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Renkler WhichRGB;
+            Bitmap goruntu = new Bitmap("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png");
+            pictureBox1.Image = goruntu;
+            int yukseklik = goruntu.Height, genislik = goruntu.Width;
+            cikti.al(yukseklik.ToString() + " " + genislik.ToString());
+
+            Color sonPixel = goruntu.GetPixel(genislik - 1, yukseklik - 1);
+            int kacHanedeBirSifrelenecek = (sonPixel.R % 5) + 1;
+
+            cikti.al(sonPixel.ToString());
+
+            Color sonBirPixel = goruntu.GetPixel(genislik - 2, yukseklik - 1);
+            int HangiRGB = (sonBirPixel.G % 3);
+
+            switch (HangiRGB)
+            {
+                case 0:
+                    WhichRGB = Renkler.R;
+                    break;
+                case 1:
+                    WhichRGB = Renkler.G;
+                    break;
+
+                case 2:
+                    WhichRGB = Renkler.B;
+                    break;
+                default:
+                    WhichRGB = Renkler.R;
+                    break;
+            }
+
+
+            Color sondanIkinciPixel = goruntu.GetPixel(genislik - 3, yukseklik - 1);
+            int sifreUzunluk = (sondanIkinciPixel.R % 10 * 100) + (sondanIkinciPixel.G % 10 * 10) + (sondanIkinciPixel.B % 10);
+
 
         }
 
+        private void sifreKir(Bitmap goruntu, int sifreUzunluk, Renkler WhichRGB, int kacHanedeBirSifrelenecek)
+        {
+            int sayac = 0;
+            int harfSayaci = 0;
+            Color pixel;
+            int r, g, b;
+            int sifreDegeri;
+            for (int i = 0; i < goruntu.Height; i++)
+            {
+                for (int j = 0; j < goruntu.Width; j++)
+                {
+
+                    if(sayac % kacHanedeBirSifrelenecek == 0)
+                    {
+                        pixel = goruntu.GetPixel(j,i);
+                        
+
+                        switch (WhichRGB)
+                        {
+                            case Renkler.R:
+                                sifreDegeri = pixel.R;
+                                break;
+                            case Renkler.G:
+                                sifreDegeri = pixel.G;
+                                break;
+                            case Renkler.B:
+                                sifreDegeri = pixel.B;
+                                break;
+                            default:
+                                sifreDegeri = pixel.R;
+                                break;
+                        }
+
+                        sayac = 0;
+                        harfSayaci++;
+                    }
+
+
+                    // BURADA KALDIK
+
+                    if (harfSayaci == sifreUzunluk)
+                    {
+                        return; 
+                    }
+                    sayac++;
+                }
+            }
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
