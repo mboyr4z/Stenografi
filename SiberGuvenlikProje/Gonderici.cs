@@ -64,7 +64,7 @@ namespace SiberGuvenlikProje
                         client.Receive(buffer, buffer.Length, SocketFlags.None);
                         Console.WriteLine("Receive success");
 
-                        File.WriteAllBytes("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png", buffer);
+                        File.WriteAllBytes("C:\\Users\\Boyraz\\Desktop\\gonderilecek.png", buffer);
                     }
                 }
             }
@@ -235,7 +235,7 @@ namespace SiberGuvenlikProje
 
 
                         goruntu.SetPixel(goruntu.Width - 3, goruntu.Height - 1, Color.FromArgb(r + sifre.Length / 100, g + sifre.Length / 10, b + sifre.Length % 10));
-                        goruntu.Save("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png", ImageFormat.Png);
+                        goruntu.Save("C:\\Users\\Boyraz\\Desktop\\gonderilecek.png", ImageFormat.Png);
                         return;
                     }
                 }

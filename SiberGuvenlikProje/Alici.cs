@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,8 +19,12 @@ namespace SiberGuvenlikProje
     }
     public partial class Alici : Form
     {
+        string baglanilacakIP = "";
+
 
         
+
+
         public Alici()
         {
             InitializeComponent();
@@ -28,7 +34,7 @@ namespace SiberGuvenlikProje
         {
             int sifreUzunluk;
             Renkler WhichRGB;
-            Bitmap goruntu = new Bitmap("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png");
+            Bitmap goruntu = new Bitmap("C:\\Users\\Boyraz\\Desktop\\gonderilecek.png");
             pictureBox1.Image = goruntu;
             int yukseklik = goruntu.Height, genislik = goruntu.Width;
            // cikti.al(yukseklik.ToString() + " " + genislik.ToString());
@@ -147,9 +153,36 @@ namespace SiberGuvenlikProje
 
         }
 
-        private void Alici_Load(object sender, EventArgs e)
-        {
+       
 
+     
+        private void btn_baglan_Click(object sender, EventArgs e)
+        {
+            baglanilacakIP = textBox2.Text.ToString();
+         
+
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999);
+            using (Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+            {
+                client.Connect(iep);
+
+                while (true)
+                {
+                    string input = Console.ReadLine();
+
+                    if (input.ToUpper().Equals("QUIT"))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        // receive data
+                        byte[] buffer = new byte[1000000];
+                        client.Receive(buffer, buffer.Length, SocketFlags.None);
+                        Console.WriteLine("Receive success");
+                    }
+                }
+            }
         }
     }
 }

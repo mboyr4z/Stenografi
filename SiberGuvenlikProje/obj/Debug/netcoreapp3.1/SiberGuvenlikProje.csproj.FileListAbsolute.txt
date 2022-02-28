@@ -33,3 +33,6 @@ C:\Users\zeuss\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netc
 C:\Users\zeuss\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Alici.resources
 C:\Users\zeuss\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Gonderici.resources
 C:\Users\zeuss\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Form1.resources
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Alici.resources
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Baslangic.resources
+C:\Users\Boyraz\source\repos\SiberGuvenlikProje\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Gonderici.resources
