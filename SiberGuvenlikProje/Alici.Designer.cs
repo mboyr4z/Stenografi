@@ -64,8 +64,7 @@ namespace SiberGuvenlikProje
             this.txt_cozulmusSifre.Name = "txt_cozulmusSifre";
             this.txt_cozulmusSifre.Size = new System.Drawing.Size(180, 23);
             this.txt_cozulmusSifre.TabIndex = 2;
-            this.txt_cozulmusSifre.Text = "awdawd";
-            this.txt_cozulmusSifre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // btn_baglan
             // 
@@ -85,7 +84,6 @@ namespace SiberGuvenlikProje
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(208, 23);
             this.textBox2.TabIndex = 4;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Alici
             // 
@@ -100,7 +98,6 @@ namespace SiberGuvenlikProje
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Alici";
             this.Text = "Alici";
-            this.Load += new System.EventHandler(this.Alici_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

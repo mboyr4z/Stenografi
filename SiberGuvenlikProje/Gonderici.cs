@@ -16,7 +16,7 @@ namespace SiberGuvenlikProje
 {
     public partial class Gonderici : Form
     {
-        private string IP = "";
+        private string baglanilacakIP = "";
 
         private int PORT = 9999;
 
@@ -39,33 +39,22 @@ namespace SiberGuvenlikProje
 
         private void btn_baglan_Click(object sender, EventArgs e)
         {
-            IP = txt_baglanilanIP.Text;
+            baglanilacakIP = txt_baglanilanIP.Text;
         }
 
         private void btn_gonder_Click(object sender, EventArgs e)
         {
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), PORT); //gönderen kisi ipsi
-            using (Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
-            {
-                client.Connect(iep);
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999);       // GÖNDEREN KİŞİ IP
+            Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            server.Bind(iep);
+            server.Listen(10);
 
+            using (Socket client = server.Accept())     // karşı taraf ortama bağlandığında
+            {
                 while (true)
                 {
-                    string input = Console.ReadLine();
-
-                    if (input.ToUpper().Equals("QUIT"))
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        // receive data
-                        byte[] buffer = new byte[1000000];
-                        client.Receive(buffer, buffer.Length, SocketFlags.None);
-                        Console.WriteLine("Receive success");
-
-                        File.WriteAllBytes("C:\\Users\\Boyraz\\Desktop\\gonderilecek.png", buffer);
-                    }
+                    byte[] buffer = File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png");
+                    client.Send(buffer, buffer.Length, SocketFlags.None);
                 }
             }
         }
@@ -235,7 +224,7 @@ namespace SiberGuvenlikProje
 
 
                         goruntu.SetPixel(goruntu.Width - 3, goruntu.Height - 1, Color.FromArgb(r + sifre.Length / 100, g + sifre.Length / 10, b + sifre.Length % 10));
-                        goruntu.Save("C:\\Users\\Boyraz\\Desktop\\gonderilecek.png", ImageFormat.Png);
+                        goruntu.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png", ImageFormat.Png);
                         return;
                     }
                 }

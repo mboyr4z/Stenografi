@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -34,8 +35,8 @@ namespace SiberGuvenlikProje
         {
             int sifreUzunluk;
             Renkler WhichRGB;
-            Bitmap goruntu = new Bitmap("C:\\Users\\Boyraz\\Desktop\\gonderilecek.png");
-            pictureBox1.Image = goruntu;
+            Bitmap goruntu = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gelenResim.png");
+            //pictureBox1.Image = goruntu;
             int yukseklik = goruntu.Height, genislik = goruntu.Width;
            // cikti.al(yukseklik.ToString() + " " + genislik.ToString());
 
@@ -148,41 +149,32 @@ namespace SiberGuvenlikProje
                 }
             }
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-       
 
-     
+
+
         private void btn_baglan_Click(object sender, EventArgs e)
         {
-            baglanilacakIP = textBox2.Text.ToString();
-         
-
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999);
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999); //gönderen kisi ipsi
             using (Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
             {
                 client.Connect(iep);
 
                 while (true)
                 {
-                    string input = Console.ReadLine();
-
-                    if (input.ToUpper().Equals("QUIT"))
-                    {
-                        break;
-                    }
-                    else
-                    {
+                    
                         // receive data
                         byte[] buffer = new byte[1000000];
                         client.Receive(buffer, buffer.Length, SocketFlags.None);
                         Console.WriteLine("Receive success");
-                    }
+
+                        File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gelenResim.png", buffer);
+                              
                 }
+                pictureBox1.Image = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gelenResim.png");
             }
+
         }
     }
 }
