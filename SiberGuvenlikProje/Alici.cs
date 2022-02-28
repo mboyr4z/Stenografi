@@ -17,6 +17,8 @@ namespace SiberGuvenlikProje
     }
     public partial class Alici : Form
     {
+
+        
         public Alici()
         {
             InitializeComponent();
@@ -24,16 +26,17 @@ namespace SiberGuvenlikProje
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int sifreUzunluk;
             Renkler WhichRGB;
             Bitmap goruntu = new Bitmap("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png");
             pictureBox1.Image = goruntu;
             int yukseklik = goruntu.Height, genislik = goruntu.Width;
-            cikti.al(yukseklik.ToString() + " " + genislik.ToString());
+           // cikti.al(yukseklik.ToString() + " " + genislik.ToString());
 
             Color sonPixel = goruntu.GetPixel(genislik - 1, yukseklik - 1);
             int kacHanedeBirSifrelenecek = (sonPixel.R % 5) + 1;
 
-            cikti.al(sonPixel.ToString());
+            //cikti.al(sonPixel.ToString());
 
             Color sonBirPixel = goruntu.GetPixel(genislik - 2, yukseklik - 1);
             int HangiRGB = (sonBirPixel.G % 3);
@@ -57,7 +60,9 @@ namespace SiberGuvenlikProje
 
 
             Color sondanIkinciPixel = goruntu.GetPixel(genislik - 3, yukseklik - 1);
-            int sifreUzunluk = (sondanIkinciPixel.R % 10 * 100) + (sondanIkinciPixel.G % 10 * 10) + (sondanIkinciPixel.B % 10);
+            sifreUzunluk = (sondanIkinciPixel.R % 10 * 100) + (sondanIkinciPixel.G % 10 * 10) + (sondanIkinciPixel.B % 10);
+            sifreKir(goruntu, sifreUzunluk, WhichRGB, kacHanedeBirSifrelenecek);
+            cikti.al(sifreUzunluk.ToString());
 
 
         }
@@ -67,8 +72,9 @@ namespace SiberGuvenlikProje
             int sayac = 0;
             int harfSayaci = 0;
             Color pixel;
-            int r, g, b;
             int sifreDegeri;
+            string cozulmusSifre = "";
+
             for (int i = 0; i < goruntu.Height; i++)
             {
                 for (int j = 0; j < goruntu.Width; j++)
@@ -95,6 +101,12 @@ namespace SiberGuvenlikProje
                                 break;
                         }
 
+                        sifreDegeri = (sifreDegeri % 35) + 97;
+                      
+                        char harf = (char)sifreDegeri;
+                        cozulmusSifre += harf;
+                      
+
                         sayac = 0;
                         harfSayaci++;
                     }
@@ -104,6 +116,7 @@ namespace SiberGuvenlikProje
 
                     if (harfSayaci == sifreUzunluk)
                     {
+                        cikti.al(cozulmusSifre);
                         return; 
                     }
                     sayac++;
