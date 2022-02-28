@@ -44,10 +44,9 @@ namespace SiberGuvenlikProje
             // 
             // btn_resimSec
             // 
-            this.btn_resimSec.Location = new System.Drawing.Point(14, 16);
-            this.btn_resimSec.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_resimSec.Location = new System.Drawing.Point(12, 12);
             this.btn_resimSec.Name = "btn_resimSec";
-            this.btn_resimSec.Size = new System.Drawing.Size(149, 40);
+            this.btn_resimSec.Size = new System.Drawing.Size(130, 30);
             this.btn_resimSec.TabIndex = 0;
             this.btn_resimSec.Text = "Resim Seç";
             this.btn_resimSec.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@ namespace SiberGuvenlikProje
             // 
             // btn_sifrele
             // 
-            this.btn_sifrele.Location = new System.Drawing.Point(497, 64);
-            this.btn_sifrele.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_sifrele.Location = new System.Drawing.Point(435, 48);
             this.btn_sifrele.Name = "btn_sifrele";
-            this.btn_sifrele.Size = new System.Drawing.Size(149, 40);
+            this.btn_sifrele.Size = new System.Drawing.Size(130, 30);
             this.btn_sifrele.TabIndex = 1;
             this.btn_sifrele.Text = "Şifrele";
             this.btn_sifrele.UseVisualStyleBackColor = true;
@@ -66,10 +64,9 @@ namespace SiberGuvenlikProje
             // 
             // btn_gonder
             // 
-            this.btn_gonder.Location = new System.Drawing.Point(497, 112);
-            this.btn_gonder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_gonder.Location = new System.Drawing.Point(435, 84);
             this.btn_gonder.Name = "btn_gonder";
-            this.btn_gonder.Size = new System.Drawing.Size(149, 40);
+            this.btn_gonder.Size = new System.Drawing.Size(130, 30);
             this.btn_gonder.TabIndex = 2;
             this.btn_gonder.Text = "Gönder";
             this.btn_gonder.UseVisualStyleBackColor = true;
@@ -77,28 +74,25 @@ namespace SiberGuvenlikProje
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(14, 64);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 48);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(466, 520);
+            this.pictureBox1.Size = new System.Drawing.Size(408, 390);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // text_sifre
             // 
-            this.text_sifre.Location = new System.Drawing.Point(652, 64);
-            this.text_sifre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.text_sifre.Location = new System.Drawing.Point(570, 48);
             this.text_sifre.Name = "text_sifre";
-            this.text_sifre.Size = new System.Drawing.Size(247, 27);
+            this.text_sifre.Size = new System.Drawing.Size(217, 23);
             this.text_sifre.TabIndex = 5;
             // 
             // btn_ipgstr
             // 
-            this.btn_ipgstr.Location = new System.Drawing.Point(497, 172);
-            this.btn_ipgstr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_ipgstr.Location = new System.Drawing.Point(435, 129);
             this.btn_ipgstr.Name = "btn_ipgstr";
-            this.btn_ipgstr.Size = new System.Drawing.Size(149, 40);
+            this.btn_ipgstr.Size = new System.Drawing.Size(130, 30);
             this.btn_ipgstr.TabIndex = 6;
             this.btn_ipgstr.Text = "İPV4 Göster";
             this.btn_ipgstr.UseVisualStyleBackColor = true;
@@ -106,17 +100,17 @@ namespace SiberGuvenlikProje
             // 
             // txt_GosterilenIP
             // 
-            this.txt_GosterilenIP.Location = new System.Drawing.Point(652, 179);
+            this.txt_GosterilenIP.Location = new System.Drawing.Point(570, 134);
+            this.txt_GosterilenIP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_GosterilenIP.Name = "txt_GosterilenIP";
-            this.txt_GosterilenIP.Size = new System.Drawing.Size(247, 27);
+            this.txt_GosterilenIP.Size = new System.Drawing.Size(217, 23);
             this.txt_GosterilenIP.TabIndex = 7;
             // 
             // btn_baglan
             // 
-            this.btn_baglan.Location = new System.Drawing.Point(497, 220);
-            this.btn_baglan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_baglan.Location = new System.Drawing.Point(435, 165);
             this.btn_baglan.Name = "btn_baglan";
-            this.btn_baglan.Size = new System.Drawing.Size(149, 40);
+            this.btn_baglan.Size = new System.Drawing.Size(130, 30);
             this.btn_baglan.TabIndex = 8;
             this.btn_baglan.Text = "IP Bağlan";
             this.btn_baglan.UseVisualStyleBackColor = true;
@@ -124,24 +118,26 @@ namespace SiberGuvenlikProje
             // 
             // txt_baglanilanIP
             // 
-            this.txt_baglanilanIP.Location = new System.Drawing.Point(652, 227);
+            this.txt_baglanilanIP.Location = new System.Drawing.Point(570, 170);
+            this.txt_baglanilanIP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_baglanilanIP.Name = "txt_baglanilanIP";
-            this.txt_baglanilanIP.Size = new System.Drawing.Size(247, 27);
+            this.txt_baglanilanIP.Size = new System.Drawing.Size(217, 23);
             this.txt_baglanilanIP.TabIndex = 9;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(497, 277);
+            this.richTextBox1.Location = new System.Drawing.Point(435, 208);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(405, 272);
+            this.richTextBox1.Size = new System.Drawing.Size(355, 205);
             this.richTextBox1.TabIndex = 10;
             this.richTextBox1.Text = "";
             // 
             // Gonderici
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.txt_baglanilanIP);
             this.Controls.Add(this.btn_baglan);
@@ -152,7 +148,6 @@ namespace SiberGuvenlikProje
             this.Controls.Add(this.btn_gonder);
             this.Controls.Add(this.btn_sifrele);
             this.Controls.Add(this.btn_resimSec);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Gonderici";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Gonderici_Load);

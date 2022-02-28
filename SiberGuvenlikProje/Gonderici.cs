@@ -44,6 +44,7 @@ namespace SiberGuvenlikProje
 
         private void btn_gonder_Click(object sender, EventArgs e)
         {
+            cikti.al(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png");
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999);       // GÖNDEREN KİŞİ IP
             Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             server.Bind(iep);
@@ -51,11 +52,15 @@ namespace SiberGuvenlikProje
 
             using (Socket client = server.Accept())     // karşı taraf ortama bağlandığında
             {
-                while (true)
-                {
+                richTextBox1.Text += "Baglanti kuruldu";
+                
+
+                    richTextBox1.Text += "gönderme deneme";
                     byte[] buffer = File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png");
                     client.Send(buffer, buffer.Length, SocketFlags.None);
-                }
+                    
+                
+                richTextBox1.Text += "while bitti";
             }
         }
 

@@ -156,13 +156,13 @@ namespace SiberGuvenlikProje
 
         private void btn_baglan_Click(object sender, EventArgs e)
         {
+            baglanilacakIP = textBox2.Text;
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999); //gönderen kisi ipsi
             using (Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
             {
                 client.Connect(iep);
 
-                while (true)
-                {
+                
                     
                         // receive data
                         byte[] buffer = new byte[1000000];
@@ -171,10 +171,12 @@ namespace SiberGuvenlikProje
 
                         File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gelenResim.png", buffer);
                               
-                }
+                
                 pictureBox1.Image = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gelenResim.png");
             }
 
         }
+
+       
     }
 }

@@ -64,7 +64,6 @@ namespace SiberGuvenlikProje
             this.txt_cozulmusSifre.Name = "txt_cozulmusSifre";
             this.txt_cozulmusSifre.Size = new System.Drawing.Size(180, 23);
             this.txt_cozulmusSifre.TabIndex = 2;
-
             // 
             // btn_baglan
             // 
