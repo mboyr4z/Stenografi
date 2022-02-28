@@ -62,7 +62,6 @@ namespace SiberGuvenlikProje
             Color sondanIkinciPixel = goruntu.GetPixel(genislik - 3, yukseklik - 1);
             sifreUzunluk = (sondanIkinciPixel.R % 10 * 100) + (sondanIkinciPixel.G % 10 * 10) + (sondanIkinciPixel.B % 10);
             sifreKir(goruntu, sifreUzunluk, WhichRGB, kacHanedeBirSifrelenecek);
-            cikti.al(sifreUzunluk.ToString());
 
 
         }
@@ -74,6 +73,11 @@ namespace SiberGuvenlikProje
             Color pixel;
             int sifreDegeri;
             string cozulmusSifre = "";
+            int ascii;
+
+            cikti.al("sifreUzunluk :  " + sifreUzunluk);
+            cikti.al("whichRGB :  " + WhichRGB);
+            cikti.al("Kac Hanede :  " + kacHanedeBirSifrelenecek.ToString());
 
             for (int i = 0; i < goruntu.Height; i++)
             {
@@ -83,12 +87,13 @@ namespace SiberGuvenlikProje
                     if(sayac % kacHanedeBirSifrelenecek == 0)
                     {
                         pixel = goruntu.GetPixel(j,i);
+                        cikti.al(pixel.ToString());
                         
 
-                        switch (WhichRGB)
+                        switch (WhichRGB)       // hangi renk koduna göre sifreDegeri belli olur
                         {
                             case Renkler.R:
-                                sifreDegeri = pixel.R;
+                                sifreDegeri = pixel.R ;
                                 break;
                             case Renkler.G:
                                 sifreDegeri = pixel.G;
@@ -100,10 +105,25 @@ namespace SiberGuvenlikProje
                                 sifreDegeri = pixel.R;
                                 break;
                         }
+                        sifreDegeri %= 35;
 
-                        sifreDegeri = (sifreDegeri % 35) + 97;
-                      
-                        char harf = (char)sifreDegeri;
+                        if (sifreDegeri >= 0 && sifreDegeri <= 24)       // harftir
+                        {
+                            ascii = sifreDegeri +  97;
+                        }
+
+                        else if (sifreDegeri >= 2 && sifreDegeri <= 35)      // sayı
+                        {
+                            ascii = sifreDegeri + (48 - 26);       // 
+                        }   
+                        else{       // SPACE TUŞU
+                            ascii = 32;
+                        }
+
+
+                        char harf = (char)ascii;
+
+                     
                         cozulmusSifre += harf;
                       
 
@@ -112,11 +132,10 @@ namespace SiberGuvenlikProje
                     }
 
 
-                    // BURADA KALDIK
 
                     if (harfSayaci == sifreUzunluk)
                     {
-                        cikti.al(cozulmusSifre);
+                        txt_cozulmusSifre.Text = cozulmusSifre;
                         return; 
                     }
                     sayac++;

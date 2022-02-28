@@ -31,7 +31,7 @@ namespace SiberGuvenlikProje
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_sifrecoz = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_cozulmusSifre = new System.Windows.Forms.TextBox();
             this.btn_baglan = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,13 +55,14 @@ namespace SiberGuvenlikProje
             this.btn_sifrecoz.UseVisualStyleBackColor = true;
             this.btn_sifrecoz.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txt_cozulmusSifre
             // 
-            this.textBox1.Location = new System.Drawing.Point(514, 107);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_cozulmusSifre.Location = new System.Drawing.Point(514, 107);
+            this.txt_cozulmusSifre.Name = "txt_cozulmusSifre";
+            this.txt_cozulmusSifre.Size = new System.Drawing.Size(205, 27);
+            this.txt_cozulmusSifre.TabIndex = 2;
+            this.txt_cozulmusSifre.Text = "awdawd";
+            this.txt_cozulmusSifre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btn_baglan
             // 
@@ -86,7 +87,7 @@ namespace SiberGuvenlikProje
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btn_baglan);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_cozulmusSifre);
             this.Controls.Add(this.btn_sifrecoz);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Alici";
@@ -102,7 +103,7 @@ namespace SiberGuvenlikProje
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_sifrecoz;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_cozulmusSifre;
         private System.Windows.Forms.Button btn_baglan;
         private System.Windows.Forms.TextBox textBox2;
     }

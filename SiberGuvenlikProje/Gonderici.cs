@@ -107,10 +107,6 @@ namespace SiberGuvenlikProje
             goruntu = CreateNonIndexedImage(newImage);
             string sifre = text_sifre.Text;
 
-            cikti.al("Şifre : " + sifre.ToString());
-
-            
-
 
             Color pixel = goruntu.GetPixel(goruntu.Width - 1, goruntu.Height - 1);
             int kacHanedeBirSifrelenecek = (pixel.R % 5) + 1;
@@ -128,6 +124,7 @@ namespace SiberGuvenlikProje
 
             int sayac = 0;
             int harfsayaci = 0;
+            int asciiKalan = 0;
 
             for (int i = 0; i < goruntu.Height; i++)//resmi yatay olarak taramak için
             {
@@ -137,6 +134,22 @@ namespace SiberGuvenlikProje
                     if (sayac % kacHanedeBirSifrelenecek == 0)
                     {
                         pixel = goruntu.GetPixel(j, i);
+                      
+
+                        if ((int)sifre[harfsayaci] == 32)       // space tuşu için
+                        {
+                            asciiKalan = 35;
+                        }
+
+                        else if ((int)sifre[harfsayaci] >= 97)      // harfler çin
+                        {
+                            asciiKalan = ((int)sifre[harfsayaci]) % 97;
+                        }
+                        else if((int)sifre[harfsayaci] >= 48 && (int)sifre[harfsayaci] <= 57)       // sayılar için
+                        {
+                            asciiKalan = ((int)sifre[harfsayaci]) % 48   + 26;
+                        }
+                        
                         switch (HangiRGb)
                         {
                             case 0:
@@ -150,8 +163,8 @@ namespace SiberGuvenlikProje
                                 kalan = pixel.B % 35;
                                 break;
                         }
-
-                        int asciiKalan = ((int)sifre[harfsayaci]) % 97;
+                        
+                        
 
                         int fark = asciiKalan - kalan;
 
