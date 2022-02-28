@@ -105,14 +105,14 @@ namespace SiberGuvenlikProje
                                 sifreDegeri = pixel.R;
                                 break;
                         }
-                        sifreDegeri %= 35;
+                        sifreDegeri %= 37;
 
-                        if (sifreDegeri >= 0 && sifreDegeri <= 24)       // harftir
+                        if (sifreDegeri >= 0 && sifreDegeri <= 25)       // harftir
                         {
                             ascii = sifreDegeri +  97;
                         }
 
-                        else if (sifreDegeri >= 2 && sifreDegeri <= 35)      // sayı
+                        else if (sifreDegeri >= 26 && sifreDegeri <= 35)      // sayı
                         {
                             ascii = sifreDegeri + (48 - 26);       // 
                         }   

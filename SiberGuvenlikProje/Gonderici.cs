@@ -64,7 +64,7 @@ namespace SiberGuvenlikProje
                         client.Receive(buffer, buffer.Length, SocketFlags.None);
                         Console.WriteLine("Receive success");
 
-                        File.WriteAllBytes("gonderilecek.png", buffer);
+                        File.WriteAllBytes("C:\\Users\\zeuss\\OneDrive\\Masaüstü\\gonderilecek.png", buffer);
                     }
                 }
             }
@@ -138,7 +138,7 @@ namespace SiberGuvenlikProje
 
                         if ((int)sifre[harfsayaci] == 32)       // space tuşu için
                         {
-                            asciiKalan = 35;
+                            asciiKalan = 36;
                         }
 
                         else if ((int)sifre[harfsayaci] >= 97)      // harfler çin
@@ -153,14 +153,14 @@ namespace SiberGuvenlikProje
                         switch (HangiRGb)
                         {
                             case 0:
-                                kalan = pixel.R % 35;
+                                kalan = pixel.R % 37;
                                 break;
                             case 1:
-                                kalan = pixel.G % 35;
+                                kalan = pixel.G % 37;
                                 break;
                             case 2:
 
-                                kalan = pixel.B % 35;
+                                kalan = pixel.B % 37;
                                 break;
                         }
                         
@@ -180,21 +180,21 @@ namespace SiberGuvenlikProje
                               
                                 if (pixel.R > 215)
                                 {
-                                    fark -= 35;
+                                    fark -= 37;
                                 }
                                 r += fark;
                                 break;
                             case 1:
                                 if (pixel.G > 215)
                                 {
-                                    fark -= 35;
+                                    fark -= 37;
                                 }
                                 g += fark;
                                 break;
                             case 2:
                                 if (pixel.B > 215)
                                 {
-                                    fark -= 35;
+                                    fark -= 37;
                                 }
                                 b += fark;
                                 break;
