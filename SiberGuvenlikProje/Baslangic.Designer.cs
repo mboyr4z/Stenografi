@@ -35,28 +35,31 @@ namespace SiberGuvenlikProje
             // 
             // btn_gndrci
             // 
+            this.btn_gndrci.BackColor = System.Drawing.Color.LightSalmon;
             this.btn_gndrci.Location = new System.Drawing.Point(12, 12);
             this.btn_gndrci.Name = "btn_gndrci";
             this.btn_gndrci.Size = new System.Drawing.Size(208, 119);
             this.btn_gndrci.TabIndex = 1;
             this.btn_gndrci.Text = "GÖNDERİCİ";
-            this.btn_gndrci.UseVisualStyleBackColor = true;
+            this.btn_gndrci.UseVisualStyleBackColor = false;
             this.btn_gndrci.Click += new System.EventHandler(this.btn_gndrci_Click);
             // 
             // btn_alici
             // 
+            this.btn_alici.BackColor = System.Drawing.Color.LightSalmon;
             this.btn_alici.Location = new System.Drawing.Point(242, 12);
             this.btn_alici.Name = "btn_alici";
             this.btn_alici.Size = new System.Drawing.Size(208, 119);
             this.btn_alici.TabIndex = 2;
             this.btn_alici.Text = "ALİCİ";
-            this.btn_alici.UseVisualStyleBackColor = true;
+            this.btn_alici.UseVisualStyleBackColor = false;
             this.btn_alici.Click += new System.EventHandler(this.btn_alici_Click);
             // 
             // Baslangic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(462, 141);
             this.Controls.Add(this.btn_alici);
             this.Controls.Add(this.btn_gndrci);

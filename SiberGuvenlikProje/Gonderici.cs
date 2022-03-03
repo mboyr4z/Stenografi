@@ -72,14 +72,17 @@ namespace SiberGuvenlikProje
 
             if (file.FileName != "")
             {
+                
                 dosyaYolu = file.FileName;
+                pictureBox1.Image = Image.FromFile(dosyaYolu);
+                richTextBox1.Text += "Dosya konumu seçildi\n";
             }
             else
             {
-
+                richTextBox1.Text += "Dosya seçme başarısız!\n";
             }
 
-            pictureBox1.Image = Image.FromFile(dosyaYolu);
+            
         }
 
         private void btn_ipgstr_Click(object sender, EventArgs e)
@@ -93,6 +96,9 @@ namespace SiberGuvenlikProje
                     break;
                 }
             }
+
+          
+
         }
 
         private void btn_sifrele_Click(object sender, EventArgs e)
@@ -254,6 +260,13 @@ namespace SiberGuvenlikProje
             return newBmp;
         }
 
+        private void txt_GosterilenIP_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }
