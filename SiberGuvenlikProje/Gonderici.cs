@@ -30,7 +30,7 @@ namespace SiberGuvenlikProje
         {
             InitializeComponent();
         }
-        
+
         private void Gonderici_Load(object sender, EventArgs e)
         {
             this.FormClosed += new FormClosedEventHandler(delegate
@@ -42,39 +42,42 @@ namespace SiberGuvenlikProje
         }
         private void Finish()
         {
-            if (Baslangic.geritusumu==false)
+            if (Baslangic.geritusumu == false)
             {
                 Application.Exit();
             }
         }
 
-    
+
 
         private void btn_baglan_Click(object sender, EventArgs e)
         {
             baglanilacakIP = txt_baglanilanIP.Text;
+            Baslangic.ipbaglandimi = true;
+            GonderButonunuAcmayaCalis();
         }
 
         private void btn_gonder_Click(object sender, EventArgs e)
         {
-            cikti.al(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png");
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), 9999);       // GÖNDEREN KİŞİ IP
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(baglanilacakIP), PORT);       // GÖNDEREN KİŞİ IP
             Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             server.Bind(iep);
             server.Listen(10);
 
             using (Socket client = server.Accept())     // karşı taraf ortama bağlandığında
             {
-                richTextBox1.Text += "Baglanti kuruldu";
-                
 
-                    richTextBox1.Text += "gönderme deneme";
-                    byte[] buffer = File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png");
-                    client.Send(buffer, buffer.Length, SocketFlags.None);
-                    
-                
-                richTextBox1.Text += "while bitti";
+                byte[] buffer = File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png");
+                client.Send(buffer, buffer.Length, SocketFlags.None);
+                richTextBox1.Text += "Gönderme Başarılı.. \n";
+               
             }
+
+
+            server.Close();
+
+            
+
         }
 
         private void btn_resimSec_Click(object sender, EventArgs e)
@@ -85,17 +88,18 @@ namespace SiberGuvenlikProje
 
             if (file.FileName != "")
             {
-                
+
                 dosyaYolu = file.FileName;
                 pictureBox1.Image = Image.FromFile(dosyaYolu);
                 richTextBox1.Text += "Dosya konumu seçildi\n";
+                btn_sifrele.Enabled = true;
+
             }
             else
             {
                 richTextBox1.Text += "Dosya seçme başarısız!\n";
             }
 
-            
         }
 
         private void btn_ipgstr_Click(object sender, EventArgs e)
@@ -110,153 +114,185 @@ namespace SiberGuvenlikProje
                 }
             }
 
-          
+            txt_baglanilanIP.Text = txt_GosterilenIP.Text;
+
+
 
         }
+        private void GonderButonunuAcmayaCalis()
+        {
+            if(Baslangic.ipbaglandimi==true && Baslangic.sifrelendimi == true)
+            {
+                btn_gonder.Enabled = true;
+                richTextBox1.Text += "Gönderme Hazır !\n";
+            }
 
+            if (Baslangic.ipbaglandimi == false)
+            {
+                richTextBox1.Text += "Lutfen IP Baglayınız! \n";
+            }
+
+            if (Baslangic.sifrelendimi == false)
+            {
+                richTextBox1.Text += "Lutfen Resmi Şifreleyiniz \n";
+            }
+        }
         private void btn_sifrele_Click(object sender, EventArgs e)
         {
-            Image newImage = Image.FromFile(dosyaYolu);
-            goruntu = CreateNonIndexedImage(newImage);
-            string sifre = text_sifre.Text;
 
-
-            Color pixel = goruntu.GetPixel(goruntu.Width - 1, goruntu.Height - 1);
-            int kacHanedeBirSifrelenecek = (pixel.R % 5) + 1;
-
-            cikti.al("Kac Hanede : " + kacHanedeBirSifrelenecek.ToString());
-
-            pixel = goruntu.GetPixel(goruntu.Width - 2, goruntu.Height - 1);
-            int HangiRGb = (pixel.G % 3);
-            cikti.al("Hangi RGB : " + HangiRGb.ToString());
-
-            
-
-
-
-
-            int sayac = 0;
-            int harfsayaci = 0;
-            int asciiKalan = 0;
-
-            for (int i = 0; i < goruntu.Height; i++)//resmi yatay olarak taramak için
+            if (text_sifre.Text != "")
             {
-                for (int j = 0; j < goruntu.Width; j++)//resmi dikey olarak taramak için
+
+                Image newImage = Image.FromFile(dosyaYolu);
+                goruntu = CreateNonIndexedImage(newImage);
+                string sifre = text_sifre.Text;
+
+
+                Color pixel = goruntu.GetPixel(goruntu.Width - 1, goruntu.Height - 1);
+                int kacHanedeBirSifrelenecek = (pixel.R % 5) + 1;
+
+                cikti.al("Kac Hanede : " + kacHanedeBirSifrelenecek.ToString());
+
+                pixel = goruntu.GetPixel(goruntu.Width - 2, goruntu.Height - 1);
+                int HangiRGb = (pixel.G % 3);
+                cikti.al("Hangi RGB : " + HangiRGb.ToString());
+
+
+
+
+
+
+                int sayac = 0;
+                int harfsayaci = 0;
+                int asciiKalan = 0;
+
+                for (int i = 0; i < goruntu.Height; i++)//resmi yatay olarak taramak için
                 {
-
-                    if (sayac % kacHanedeBirSifrelenecek == 0)
+                    for (int j = 0; j < goruntu.Width; j++)//resmi dikey olarak taramak için
                     {
-                        pixel = goruntu.GetPixel(j, i);
-                      
 
-                        if ((int)sifre[harfsayaci] == 32)       // space tuşu için
+                        if (sayac % kacHanedeBirSifrelenecek == 0)
                         {
-                            asciiKalan = 36;
-                        }
+                            pixel = goruntu.GetPixel(j, i);
+                            cikti.al(pixel.ToString() + " pixelinde char : ");
+                            cikti.al(sifre[harfsayaci].ToString() + ", ascii : ");
+                            cikti.al(((int)sifre[harfsayaci]).ToString());
+                            if (((int)sifre[harfsayaci]) == 32)       // space tuşu için
+                            {
+                                asciiKalan = 36;
+                            }
 
-                        else if ((int)sifre[harfsayaci] >= 97)      // harfler çin
+                            else if ((int)sifre[harfsayaci] >= 97)      // harfler çin
+                            {
+                                asciiKalan = ((int)sifre[harfsayaci]) % 97;
+                            }
+                            else if ((int)sifre[harfsayaci] >= 48 && (int)sifre[harfsayaci] <= 57)       // sayılar için
+                            {
+                                asciiKalan = ((int)sifre[harfsayaci]) % 48 + 26;
+                            }
+
+                            switch (HangiRGb)
+                            {
+                                case 0:
+                                    kalan = pixel.R % 37;
+                                    break;
+                                case 1:
+                                    kalan = pixel.G % 37;
+                                    break;
+                                case 2:
+
+                                    kalan = pixel.B % 37;
+                                    break;
+                            }
+
+
+
+                            int fark = asciiKalan - kalan;
+
+                            int r, g, b;
+                            r = pixel.R;
+                            g = pixel.G;
+                            b = pixel.B;
+
+
+                            switch (HangiRGb)
+                            {
+                                case 0:
+
+                                    if (pixel.R > 215)
+                                    {
+                                        fark -= 37;
+                                    }
+                                    r += fark;
+                                    break;
+                                case 1:
+                                    if (pixel.G > 215)
+                                    {
+                                        fark -= 37;
+                                    }
+                                    g += fark;
+                                    break;
+                                case 2:
+                                    if (pixel.B > 215)
+                                    {
+                                        fark -= 37;
+                                    }
+                                    b += fark;
+                                    break;
+                            }
+
+                            goruntu.SetPixel(j, i, Color.FromArgb(r, g, b));
+
+
+               
+                            harfsayaci++;
+                            sayac = 0;
+                        }
+                        sayac++;
+
+                        if (harfsayaci == sifre.Length)
                         {
-                            asciiKalan = ((int)sifre[harfsayaci]) % 97;
+
+                            pictureBox1.Image = goruntu;
+                            pixel = goruntu.GetPixel(goruntu.Width - 3, goruntu.Height - 1);
+                            int r = (pixel.R - pixel.R % 10);
+                            int g = (pixel.G - pixel.G % 10);
+                            int b = (pixel.B - pixel.B % 10);
+
+                            if (r > 240)
+                            {
+                                r -= 10;
+                            }
+
+                            if (g > 240)
+                            {
+                                g -= 10;
+                            }
+
+                            if (b > 240)
+                            {
+                                b -= 10;
+                            }
+
+
+                            goruntu.SetPixel(goruntu.Width - 3, goruntu.Height - 1, Color.FromArgb(r + sifre.Length / 100, g + sifre.Length / 10, b + sifre.Length % 10));
+                            goruntu.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png", ImageFormat.Png);
+                            richTextBox1.Text += "Şifreleme Başarılı \n";
+                            Baslangic.sifrelendimi = true;
+                            GonderButonunuAcmayaCalis();
+                            return;
                         }
-                        else if((int)sifre[harfsayaci] >= 48 && (int)sifre[harfsayaci] <= 57)       // sayılar için
-                        {
-                            asciiKalan = ((int)sifre[harfsayaci]) % 48   + 26;
-                        }
-                        
-                        switch (HangiRGb)
-                        {
-                            case 0:
-                                kalan = pixel.R % 37;
-                                break;
-                            case 1:
-                                kalan = pixel.G % 37;
-                                break;
-                            case 2:
-
-                                kalan = pixel.B % 37;
-                                break;
-                        }
-                        
-                        
-
-                        int fark = asciiKalan - kalan;
-
-                        int r, g, b;
-                        r = pixel.R;
-                        g = pixel.G;
-                        b = pixel.B;
-
-            
-                        switch (HangiRGb)
-                        {
-                            case 0:
-                              
-                                if (pixel.R > 215)
-                                {
-                                    fark -= 37;
-                                }
-                                r += fark;
-                                break;
-                            case 1:
-                                if (pixel.G > 215)
-                                {
-                                    fark -= 37;
-                                }
-                                g += fark;
-                                break;
-                            case 2:
-                                if (pixel.B > 215)
-                                {
-                                    fark -= 37;
-                                }
-                                b += fark;
-                                break;
-                        }
-
-                        goruntu.SetPixel(j, i, Color.FromArgb(r, g, b));
-
-
-                        harfsayaci++;
-                        sayac = 0;
                     }
-                    sayac++;
-              
-                    if (harfsayaci == sifre.Length)
-                    {
-                      
-                        pictureBox1.Image = goruntu;
-                        btn_sifrele.Text = "Şifrelendi";
-                        pixel = goruntu.GetPixel(goruntu.Width - 3, goruntu.Height - 1);
-                        int r = (pixel.R - pixel.R % 10);
-                        int g = (pixel.G - pixel.G % 10);
-                        int b = (pixel.B - pixel.B % 10);
 
-                        if(r > 240)
-                        {
-                            r -= 10;
-                        }
-
-                        if(g > 240)
-                        {
-                            g -= 10;
-                        }
-
-                        if (b > 240)
-                        {
-                            b -= 10;
-                        }
-
-
-                        goruntu.SetPixel(goruntu.Width - 3, goruntu.Height - 1, Color.FromArgb(r + sifre.Length / 100, g + sifre.Length / 10, b + sifre.Length % 10));
-                        goruntu.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gidecekResim.png", ImageFormat.Png);
-                        return;
-                    }
                 }
 
             }
+            else
+            {
+                richTextBox1.Text += "Şifre kısmı boş olamaz !!\n";
+            }
 
-          
-          
+
 
 
         }

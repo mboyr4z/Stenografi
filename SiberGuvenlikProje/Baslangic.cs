@@ -14,6 +14,8 @@ namespace SiberGuvenlikProje
         public static Alici alici;
         public static Baslangic baslangic;
         public static bool geritusumu;
+        public static bool sifrelendimi;
+        public static bool ipbaglandimi;
         public Baslangic()
         {
              alici = new Alici();
@@ -30,6 +32,8 @@ namespace SiberGuvenlikProje
         private void btn_gndrci_Click(object sender, EventArgs e)
         {
             geritusumu = false;
+            ipbaglandimi = false;
+            sifrelendimi = false;
             gonderici.Show();
             CloseWindow();
 

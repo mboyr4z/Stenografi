@@ -75,6 +75,7 @@ namespace SiberGuvenlikProje
             // btn_sifrele
             // 
             this.btn_sifrele.BackColor = System.Drawing.Color.LightSalmon;
+            this.btn_sifrele.Enabled = false;
             this.btn_sifrele.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_sifrele.ImageKey = "anahtar-removebg-preview.png";
             this.btn_sifrele.ImageList = this.ımageList4;
@@ -98,6 +99,7 @@ namespace SiberGuvenlikProje
             // btn_gonder
             // 
             this.btn_gonder.BackColor = System.Drawing.Color.LightSalmon;
+            this.btn_gonder.Enabled = false;
             this.btn_gonder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_gonder.ImageKey = "mavi-removebg-preview.png";
             this.btn_gonder.ImageList = this.ımageList5;
@@ -238,9 +240,10 @@ namespace SiberGuvenlikProje
             this.Controls.Add(this.btn_gonder);
             this.Controls.Add(this.btn_sifrele);
             this.Controls.Add(this.btn_resimSec);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Gonderici";
-            this.Text = "Form1";
+            this.Text = "GONDERİCİ";
             this.Load += new System.EventHandler(this.Gonderici_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

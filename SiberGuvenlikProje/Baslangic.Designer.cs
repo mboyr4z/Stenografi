@@ -29,6 +29,7 @@ namespace SiberGuvenlikProje
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Baslangic));
             this.btn_gndrci = new System.Windows.Forms.Button();
             this.btn_alici = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -63,6 +64,7 @@ namespace SiberGuvenlikProje
             this.ClientSize = new System.Drawing.Size(462, 141);
             this.Controls.Add(this.btn_alici);
             this.Controls.Add(this.btn_gndrci);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Baslangic";
             this.Text = "Baslangic";
             this.ResumeLayout(false);

@@ -141,7 +141,7 @@ namespace SiberGuvenlikProje
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Alici";
-            this.Text = "Alici";
+            this.Text = "ALİCİ";
             this.Load += new System.EventHandler(this.Alici_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
