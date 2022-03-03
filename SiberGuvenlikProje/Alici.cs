@@ -185,7 +185,7 @@ namespace SiberGuvenlikProje
 
         private void btn_geri_Click(object sender, EventArgs e)
         {
-            Baslangic.alici.Close();
+            Baslangic.alici.Hide();
             Baslangic.baslangic.Show();
 
         }

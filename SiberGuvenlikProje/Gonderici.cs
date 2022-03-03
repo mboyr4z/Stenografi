@@ -24,17 +24,15 @@ namespace SiberGuvenlikProje
 
         private string dosyaYolu = "";
 
-        int kalan;
-
+        private int kalan;
 
         public Gonderici()
         {
             InitializeComponent();
         }
-
+        
         private void Gonderici_Load(object sender, EventArgs e)
         {
-
             this.FormClosed += new FormClosedEventHandler(delegate
             {
                 Finish();
@@ -44,7 +42,10 @@ namespace SiberGuvenlikProje
         }
         private void Finish()
         {
-            Application.Exit();
+            if (Baslangic.geritusumu==false)
+            {
+                Application.Exit();
+            }
         }
 
     
@@ -283,7 +284,8 @@ namespace SiberGuvenlikProje
 
         private void btn_geri_Click(object sender, EventArgs e)
         {
-            Baslangic.gonderici.Close();
+            Baslangic.geritusumu = true;
+            Baslangic.gonderici.Hide();
             Baslangic.baslangic.Show();
 
         }
