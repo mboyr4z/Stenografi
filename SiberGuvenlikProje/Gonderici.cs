@@ -35,7 +35,19 @@ namespace SiberGuvenlikProje
         private void Gonderici_Load(object sender, EventArgs e)
         {
 
+            this.FormClosed += new FormClosedEventHandler(delegate
+            {
+                Finish();
+
+            });
+
         }
+        private void Finish()
+        {
+            Application.Exit();
+        }
+
+    
 
         private void btn_baglan_Click(object sender, EventArgs e)
         {
@@ -267,6 +279,13 @@ namespace SiberGuvenlikProje
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btn_geri_Click(object sender, EventArgs e)
+        {
+            Baslangic.gonderici.Close();
+            Baslangic.baslangic.Show();
+
         }
     }
 }

@@ -175,11 +175,38 @@ namespace SiberGuvenlikProje
                 pictureBox1.Image = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\gelenResim.png");
             }
 
+            btn_sifrecoz.Enabled = true;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_geri_Click(object sender, EventArgs e)
+        {
+            Baslangic.alici.Close();
+            Baslangic.baslangic.Show();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Alici_Load(object sender, EventArgs e)
+        {
+            this.FormClosed += new FormClosedEventHandler(delegate
+              {
+                  Finish();
+
+              });
+                
+        }
+        private void Finish()
+        {
+            Application.Exit();
         }
     }
 }

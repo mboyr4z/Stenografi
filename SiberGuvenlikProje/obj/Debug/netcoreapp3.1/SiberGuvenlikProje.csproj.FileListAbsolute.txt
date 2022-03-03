@@ -45,7 +45,6 @@ C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\bin\Debug\netcoreapp3.1\Si
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.csproj.AssemblyReference.cache
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Alici.resources
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Baslangic.resources
-C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Form1.resources
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Gonderici.resources
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.csproj.GenerateResource.cache
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.GeneratedMSBuildEditorConfig.editorconfig
@@ -55,3 +54,4 @@ C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\Si
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.dll
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.pdb
 C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.genruntimeconfig.cache
+C:\Users\zeuss\source\repos\projem\SiberGuvenlikProje\obj\Debug\netcoreapp3.1\SiberGuvenlikProje.Properties.Resources.resources

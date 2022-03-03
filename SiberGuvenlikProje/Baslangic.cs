@@ -10,14 +10,22 @@ namespace SiberGuvenlikProje
 {
     public partial class Baslangic : Form
     {
+        public static Gonderici gonderici;
+        public static Alici alici;
+        public static  Baslangic baslangic;
         public Baslangic()
         {
+             alici = new Alici();
+             gonderici = new Gonderici();
+            baslangic = this;
+            
+
+
             InitializeComponent();
         }
 
         private void btn_gndrci_Click(object sender, EventArgs e)
         {
-            Gonderici gonderici = new Gonderici();
             gonderici.Show();
             CloseWindow();
 
@@ -25,7 +33,6 @@ namespace SiberGuvenlikProje
 
         private void btn_alici_Click(object sender, EventArgs e)
         {
-            Alici alici = new Alici();
             alici.Show();
             CloseWindow();
 

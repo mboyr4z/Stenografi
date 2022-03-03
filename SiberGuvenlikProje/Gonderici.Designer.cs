@@ -29,6 +29,7 @@ namespace SiberGuvenlikProje
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gonderici));
             this.btn_resimSec = new System.Windows.Forms.Button();
             this.btn_sifrele = new System.Windows.Forms.Button();
             this.btn_gonder = new System.Windows.Forms.Button();
@@ -39,13 +40,14 @@ namespace SiberGuvenlikProje
             this.btn_baglan = new System.Windows.Forms.Button();
             this.txt_baglanilanIP = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btn_geri = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_resimSec
             // 
             this.btn_resimSec.BackColor = System.Drawing.Color.LightSalmon;
-            this.btn_resimSec.Location = new System.Drawing.Point(14, 16);
+            this.btn_resimSec.Location = new System.Drawing.Point(149, 16);
             this.btn_resimSec.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_resimSec.Name = "btn_resimSec";
             this.btn_resimSec.Size = new System.Drawing.Size(149, 40);
@@ -144,12 +146,27 @@ namespace SiberGuvenlikProje
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // btn_geri
+            // 
+            this.btn_geri.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_geri.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_geri.BackgroundImage")));
+            this.btn_geri.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_geri.FlatAppearance.BorderColor = System.Drawing.Color.Moccasin;
+            this.btn_geri.FlatAppearance.BorderSize = 0;
+            this.btn_geri.Location = new System.Drawing.Point(14, 13);
+            this.btn_geri.Name = "btn_geri";
+            this.btn_geri.Size = new System.Drawing.Size(49, 47);
+            this.btn_geri.TabIndex = 11;
+            this.btn_geri.UseVisualStyleBackColor = false;
+            this.btn_geri.Click += new System.EventHandler(this.btn_geri_Click);
+            // 
             // Gonderici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.btn_geri);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.txt_baglanilanIP);
             this.Controls.Add(this.btn_baglan);
@@ -182,6 +199,7 @@ namespace SiberGuvenlikProje
         private System.Windows.Forms.Button btn_baglan;
         private System.Windows.Forms.TextBox txt_baglanilanIP;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btn_geri;
     }
 }
 

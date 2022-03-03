@@ -7,9 +7,6 @@
     <Compile Update="Baslangic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Gonderici.cs">
       <SubType>Form</SubType>
     </Compile>
